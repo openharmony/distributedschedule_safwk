@@ -40,9 +40,9 @@ ohos_executable("sa_main") {
 
   if (is_standard_system) {
     external_deps = [
-      "ipc:ipc_core",
       "hiviewdfx_hilog_native:libhilog",
-      "samgr_L2:samgr_proxy",
+      "ipc:ipc_core",
+      "samgr_standard:samgr_proxy",
     ]
     public_deps = [ "//third_party/libxml2:libxml2" ]
   }
