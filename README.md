@@ -215,7 +215,7 @@ ohos_sa_profile("xxx_sa_profile") {
 }
 ```
 
->![](public_sys-resources/icon-note.gif) **NOTE:** 
+>**NOTE:**
 >1.  Set the  **process**  tag to the name of the process where the system ability will run. This tag is mandatory.
 >2.  Add only one  **systemability**  node in the profile of a system ability. If multiple  **systemability**  nodes are added, the building fails.
 >3.  Set the  **name**  tag to the service ID registered in the code for the system ability. This tag is mandatory.
@@ -241,7 +241,7 @@ service listen_test /system/bin/sa_main /system/profile/listen_test.xml
     seclabel u:r:xxxx:s0
 ```
 
->![](public_sys-resources/icon-note.gif) **NOTE:** 
+>**NOTE:**
 >For details about the implementation of  **listen\_ability**, see the code in  **test/unittest/common/listen\_ability**.
 
 ## Repositories Involved<a name="section1371113476307"></a>

@@ -205,7 +205,7 @@ ohos_sa_profile("xxx_sa_profile") {
 }
 ```
 
->![](public_sys-resources/icon-note.gif) **说明：** 
+>**说明：**
 >1.  进程名字即该SystemAbility要运行的进程空间，此字段是必填选项；
 >2.  一个SystemAbility配置文件只能配置一个SystemAbility节点；配置多个会导致编译失败，切记
 >3.  SystemAbility的name为对应的serviceId必须与代码中注册的serviceId保持一致；必配项
@@ -231,7 +231,7 @@ service listen_test /system/bin/sa_main /system/profile/listen_test.xml
     seclabel u:r:xxxx:s0
 ```
 
->![](public_sys-resources/icon-note.gif) **说明：** 
+>**说明：**
 >listen\_ability的实现可以参考:test/unittest/common/listen\_ability
 
 ## 相关仓<a name="section1371113476307"></a>
