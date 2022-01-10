@@ -15,6 +15,8 @@
 
 #include "system_ability.h"
 
+#include <cinttypes>
+#include "datetime_ex.h"
 #include "errors.h"
 #include "if_system_ability_manager.h"
 #include "ipc_skeleton.h"
@@ -73,7 +75,8 @@ bool SystemAbility::Publish(sptr<IRemoteObject> systemAbility)
         HILOGE(TAG, "systemAbility is nullptr");
         return false;
     }
-
+    HILOGI(TAG, "[PerformanceTest] SAFWK Publish systemAbilityId:%{public}d", saId_);
+    int64_t begin = GetTickCount();
     sptr<ISystemAbilityManager> samgrProxy = SystemAbilityManagerClient::GetInstance().GetSystemAbilityManager();
     if (samgrProxy == nullptr) {
         HILOGE(TAG, "failed to get samgrProxy");
@@ -85,6 +88,8 @@ bool SystemAbility::Publish(sptr<IRemoteObject> systemAbility)
     ISystemAbilityManager::SAExtraProp saExtra(GetDistributed(), GetDumpLevel(), capability_, permission_);
     int32_t result = samgrProxy->AddSystemAbility(saId_, publishObj_, saExtra);
     HILOGI(TAG, "AddSystemAbility result:%{public}d", result);
+    HILOGI(TAG, "[PerformanceTest] SAFWK Publish systemAbilityId:%{public}d finished, spend:%{public}" PRId64 " ms",
+        saId_, (GetTickCount() - begin));
     return result == ERR_OK;
 }
 
@@ -108,9 +113,12 @@ void SystemAbility::Start()
     if (isRunning_) {
         return;
     }
-
+    HILOGI(TAG, "[PerformanceTest] SAFWK OnStart systemAbilityId:%{public}d", saId_);
+    int64_t begin = GetTickCount();
     OnStart();
     isRunning_ = true;
+    HILOGI(TAG, "[PerformanceTest] SAFWK OnStart systemAbilityId:%{public}d finished, spend:%{public}" PRId64 " ms",
+        saId_, (GetTickCount() - begin));
 }
 
 void SystemAbility::Stop()

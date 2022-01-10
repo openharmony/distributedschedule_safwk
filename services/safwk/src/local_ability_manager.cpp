@@ -147,6 +147,8 @@ bool LocalAbilityManager::CheckSystemAbilityManagerReady()
 
 bool LocalAbilityManager::InitSystemAbilityProfiles(const std::string& profilePath, int32_t saId)
 {
+    HILOGI(TAG, "[PerformanceTest] SAFWK parse system ability profiles!");
+    int64_t begin = GetTickCount();
     bool ret = profileParser_->ParseSaProfiles(profilePath);
     if (!ret) {
         HILOGW(TAG, "ParseSaProfiles failed!");
@@ -156,15 +158,25 @@ bool LocalAbilityManager::InitSystemAbilityProfiles(const std::string& profilePa
     procName_ = profileParser_->GetProcessName();
     auto saInfos = profileParser_->GetAllSaProfiles();
     std::string process = Str16ToStr8(procName_);
+    HILOGI(TAG, "[PerformanceTest] SAFWK parse process:%{public}s system ability profiles finished, spend:%{public}"
+        PRId64 " ms", process.c_str(), (GetTickCount() - begin));
     std::string path = PREFIX + process + SUFFIX;
     bool isExist = profileParser_->CheckPathExist(path);
     if (isExist) {
         CheckTrustSa(path, process, saInfos);
     }
+    begin = GetTickCount();
     if (saId != DEFAULT_SAID) {
-        return profileParser_->LoadSaLib(saId);
+        HILOGI(TAG, "[PerformanceTest] SAFWK LoadSaLib systemAbilityId:%{public}d", saId);
+        bool result = profileParser_->LoadSaLib(saId);
+        HILOGI(TAG, "[PerformanceTest] SAFWK LoadSaLib systemAbilityId:%{public}d finished, spend:%{public}"
+            PRId64 " ms", saId, (GetTickCount() - begin));
+        return result;
     } else {
+        HILOGI(TAG, "[PerformanceTest] SAFWK load all libraries");
         profileParser_->OpenSo();
+        HILOGI(TAG, "[PerformanceTest] SAFWK load all libraries finished, spend:%{public}" PRId64 " ms",
+            (GetTickCount() - begin));
         return true;
     }
 }
@@ -400,8 +412,11 @@ bool LocalAbilityManager::GetRunningStatus(int32_t systemAbilityId)
 
 void LocalAbilityManager::StartOndemandSystemAbility(int32_t systemAbilityId)
 {
-    HILOGI(TAG, "systemAbilityId is %{public}d", systemAbilityId);
+    HILOGI(TAG, "[PerformanceTest] SAFWK ondemand LoadSaLib systemAbilityId:%{public}d library", systemAbilityId);
+    int64_t begin = GetTickCount();
     bool isExist = profileParser_->LoadSaLib(systemAbilityId);
+    HILOGI(TAG, "[PerformanceTest] SAFWK ondemand LoadSaLib systemAbilityId:%{public}d, spend:%{public}" PRId64 " ms",
+        systemAbilityId, (GetTickCount() - begin));
     if (isExist) {
         int32_t timeout = RETRY_TIMES_FOR_ONDEMAND;
         constexpr int32_t duration = std::chrono::microseconds(MILLISECONDS_WAITING_ONDEMAND_ONE_TIME).count();
@@ -431,6 +446,7 @@ void LocalAbilityManager::StartOndemandSystemAbility(int32_t systemAbilityId)
 
 bool LocalAbilityManager::StartAbility(int32_t systemAbilityId)
 {
+    HILOGI(TAG, "[PerformanceTest] SAFWK received start systemAbilityId:%{public}d request", systemAbilityId);
     auto task = std::bind(&LocalAbilityManager::StartOndemandSystemAbility, this, systemAbilityId);
     ondemandPool_.AddTask(task);
     return true;

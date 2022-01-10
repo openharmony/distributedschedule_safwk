@@ -83,8 +83,7 @@ static bool CheckSaId(int32_t saId)
 
 int main(int argc, char *argv[])
 {
-    HILOGI(TAG, "safwk main entry");
-
+    HILOGI(TAG, "[PerformanceTest] SAFWK main entry process starting!");
     auto setProcessName = [argc, argv](const string& name) -> void {
         uintptr_t start = reinterpret_cast<uintptr_t>(argv[0]);
         uintptr_t end = reinterpret_cast<uintptr_t>(strchr(argv[argc - 1], 0));
