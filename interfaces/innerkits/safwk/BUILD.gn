@@ -19,7 +19,6 @@ import("//build/ohos_var.gni")
 config("system_ability_config") {
   visibility = [ ":*" ]
   include_dirs = [
-    "//utils/system/safwk/native/include",
     "../../../services/safwk/include",
     "//foundation/distributedschedule/safwk/interfaces/innerkits/safwk",
   ]
