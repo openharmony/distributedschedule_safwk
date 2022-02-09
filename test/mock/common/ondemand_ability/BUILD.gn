@@ -40,4 +40,6 @@ ohos_shared_library("test_ondemand_ability") {
     "ipc:ipc_core",
     "utils_base:utils",
   ]
+  part_name = "safwk"
+  subsystem_name = "distributedschedule"
 }
