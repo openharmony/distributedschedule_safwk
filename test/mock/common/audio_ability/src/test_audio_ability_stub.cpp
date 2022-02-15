@@ -16,7 +16,6 @@
 #include "test_audio_ability_stub.h"
 #include "errors.h"
 
-using namespace std;
 using namespace OHOS::HiviewDFX;
 
 namespace OHOS {
@@ -28,40 +27,49 @@ int32_t TestAudioAbilityStub::OnRemoteRequest(uint32_t code,
 
     switch (code) {
         case ADD_VOLUME: {
-            return reply.WriteInt32(AddVolume(data.ReadInt32()));
+            bool ret = reply.WriteInt32(AddVolume(data.ReadInt32()));
+            return (ret ? ERR_OK : ERR_FLATTEN_OBJECT);
         }
 
         case REDUCE_VOLUME: {
-            return reply.WriteInt32(ReduceVolume(data.ReadInt32()));
+            bool ret = reply.WriteInt32(ReduceVolume(data.ReadInt32()));
+            return (ret ? ERR_OK : ERR_FLATTEN_OBJECT);
         }
 
         case TEST_RPCINT32: {
-            return reply.WriteInt32(TestRpcInt32(data.ReadInt32()));
+            bool ret = reply.WriteInt32(TestRpcInt32(data.ReadInt32()));
+            return (ret ? ERR_OK : ERR_FLATTEN_OBJECT);
         }
 
         case TEST_RPCUINT32: {
-            return reply.WriteUint32(TestRpcUInt32(data.ReadUint32()));
+            bool ret = reply.WriteUint32(TestRpcUInt32(data.ReadUint32()));
+            return (ret ? ERR_OK : ERR_FLATTEN_OBJECT);
         }
 
         case TEST_RPCINT64: {
-            return reply.WriteInt64(TestRpcInt64(data.ReadInt64()));
+            bool ret = reply.WriteInt64(TestRpcInt64(data.ReadInt64()));
+            return (ret ? ERR_OK : ERR_FLATTEN_OBJECT);
         }
 
         case TEST_RPCUINT64: {
-            return reply.WriteUint64(TestRpcUInt64(data.ReadUint64()));
+            bool ret = reply.WriteUint64(TestRpcUInt64(data.ReadUint64()));
+            return (ret ? ERR_OK : ERR_FLATTEN_OBJECT);
         }
 
         case TEST_RPCFLOAT: {
-            return reply.WriteFloat(TestRpcFloat(data.ReadFloat()));
+            bool ret = reply.WriteFloat(TestRpcFloat(data.ReadFloat()));
+            return (ret ? ERR_OK : ERR_FLATTEN_OBJECT);
         }
 
         case TEST_RPCDOUBLE: {
-            return reply.WriteDouble(TestRpcDouble(data.ReadDouble()));
+            bool ret = reply.WriteDouble(TestRpcDouble(data.ReadDouble()));
+            return (ret ? ERR_OK : ERR_FLATTEN_OBJECT);
         }
 
         case TEST_RPCSTRING16: {
-            u16string strTmp = TestRpcString16(data.ReadString16());
-            return reply.WriteString16(strTmp.c_str());
+            std::u16string strTmp = TestRpcString16(data.ReadString16());
+            bool ret = reply.WriteString16(strTmp.c_str());
+            return (ret ? ERR_OK : ERR_FLATTEN_OBJECT);
         }
 
         default:

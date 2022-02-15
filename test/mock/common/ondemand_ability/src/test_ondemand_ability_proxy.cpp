@@ -18,7 +18,6 @@
 #include "ipc_types.h"
 #include "parcel.h"
 
-using namespace std;
 using namespace OHOS::HiviewDFX;
 
 namespace OHOS {
@@ -45,7 +44,7 @@ int TestOnDemandAbilityProxy::AddVolume(int volume)
     int32_t res = remote->SendRequest(ADD_VOLUME, data, reply, option);
     if (res != ERR_OK) {
         HiLog::Error(label_, "AddVolume Transact error:%{public}d!", res);
-        return false;
+        return ERR_FLATTEN_OBJECT;
     }
 
     ret = reply.ReadInt32(result);

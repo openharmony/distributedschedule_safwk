@@ -17,7 +17,6 @@
 #include "errors.h"
 #include "ipc_types.h"
 
-using namespace std;
 using namespace OHOS::HiviewDFX;
 
 namespace OHOS {
