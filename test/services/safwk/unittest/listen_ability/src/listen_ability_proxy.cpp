@@ -16,8 +16,6 @@
 #include "listen_ability_proxy.h"
 #include "message_parcel.h"
 
-using namespace std;
-
 namespace OHOS {
 int32_t ListenAbilityProxy::AddVolume(int32_t volume)
 {

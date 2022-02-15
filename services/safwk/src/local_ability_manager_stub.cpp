@@ -21,7 +21,6 @@
 #include "safwk_log.h"
 #include "system_ability_definition.h"
 
-using namespace std;
 using namespace OHOS::HiviewDFX;
 
 namespace OHOS {

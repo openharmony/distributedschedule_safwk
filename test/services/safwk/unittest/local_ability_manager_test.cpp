@@ -21,7 +21,6 @@
 #define private public
 #include "local_ability_manager.h"
 
-using namespace std;
 using namespace testing;
 using namespace testing::ext;
 

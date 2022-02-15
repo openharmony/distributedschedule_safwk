@@ -20,17 +20,27 @@
 #include <cinttypes>
 #include <unistd.h>
 
-using namespace std;
 using namespace OHOS::HiviewDFX;
 
 namespace OHOS {
+namespace {
+    const int DEFAULT_INT_RET = -1;
+    const int32_t DEFAULT_INT32_RET = -1;
+    const uint32_t DEFAULT_UINT32_RET = 9999;
+    const int64_t DEFAULT_INT64_RET = -1;
+    const int64_t DEFAULT_UINT64_RET = 9999;
+    const float DEFAULT_FLOAT_RET = -1.0f;
+    const double DEFAULT_DOUBLE_RET = -1.0;
+    const std::u16string DEFAULT_U16STRING_RET = u"";
+}
+
 int TestAudioAbilityProxy::AddVolume(int volume)
 {
     HiLog::Info(label_, "%{public}s called", __func__);
     auto remote = Remote();
     if (remote == nullptr) {
         HiLog::Error(label_, "%{public}s: object is null", __func__);
-        return -1;
+        return DEFAULT_INT_RET;
     }
     MessageParcel data;
     data.WriteInt32(volume);
@@ -49,7 +59,7 @@ int32_t TestAudioAbilityProxy::ReduceVolume(int volume)
     auto remote = Remote();
     if (remote == nullptr) {
         HiLog::Error(label_, "ReduceVolume remote is NULL !");
-        return -1;
+        return DEFAULT_INT32_RET;
     }
 
     MessageParcel data;
@@ -69,7 +79,7 @@ int32_t TestAudioAbilityProxy::TestRpcInt32(int32_t value)
     auto remote = Remote();
     if (remote == nullptr) {
         HiLog::Error(label_, "TestRpcInt32 remote is NULL !");
-        return -1;
+        return DEFAULT_INT32_RET;
     }
     MessageParcel data;
     data.WriteInt32(value);
@@ -88,7 +98,7 @@ uint32_t TestAudioAbilityProxy::TestRpcUInt32(uint32_t value)
     auto remote = Remote();
     if (remote == nullptr) {
         HiLog::Error(label_, "TestRpcUInt32 remote is NULL !");
-        return 1;
+        return DEFAULT_UINT32_RET;
     }
     MessageParcel data;
     data.WriteUint32(value);
@@ -107,7 +117,7 @@ int64_t TestAudioAbilityProxy::TestRpcInt64(int64_t value)
     auto remote = Remote();
     if (remote == nullptr) {
         HiLog::Error(label_, "TestRpcInt64 remote is NULL !");
-        return -1;
+        return DEFAULT_INT64_RET;
     }
     MessageParcel data;
     data.WriteInt64(value);
@@ -126,7 +136,7 @@ uint64_t TestAudioAbilityProxy::TestRpcUInt64(uint64_t value)
     auto remote = Remote();
     if (remote == nullptr) {
         HiLog::Error(label_, "TestRpcInt64 remote is NULL !");
-        return 1;
+        return DEFAULT_UINT64_RET;
     }
     MessageParcel data;
     data.WriteUint64(value);
@@ -145,7 +155,7 @@ float TestAudioAbilityProxy::TestRpcFloat(float value)
     auto remote = Remote();
     if (remote == nullptr) {
         HiLog::Error(label_, "TestRpcFloat remote is NULL !");
-        return -1;
+        return DEFAULT_FLOAT_RET;
     }
     MessageParcel data;
     data.WriteFloat(value);
@@ -164,7 +174,7 @@ double TestAudioAbilityProxy::TestRpcDouble(double value)
     auto remote = Remote();
     if (remote == nullptr) {
         HiLog::Error(label_, "TestRpcDouble remote is NULL !");
-        return -1.0;
+        return DEFAULT_DOUBLE_RET;
     }
     MessageParcel data;
     data.WriteDouble(value);
@@ -183,10 +193,10 @@ const std::u16string TestAudioAbilityProxy::TestRpcString16(const std::u16string
     auto remote = Remote();
     if (remote == nullptr) {
         HiLog::Error(label_, "TestRpcString16 remote is NULL !");
-        return u"";
+        return DEFAULT_U16STRING_RET;
     }
     MessageParcel data;
-    u16string strTmp = name;
+    std::u16string strTmp = name;
     data.WriteString16(strTmp.c_str());
     MessageParcel reply;
     MessageOption option;
