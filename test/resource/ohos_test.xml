@@ -19,8 +19,8 @@
             <option name="push" value="profile/test_trust_not_all_allow.xml -> /data/test/resource/safwk/profile/" src="res"/>
             <option name="push" value="profile/test_trust_all_allow.xml -> /data/test/resource/safwk/profile/" src="res"/>
             <option name="push" value="profile/profile_audio.xml -> /system/usr/" src="res"/>
-            <option name="push" value="common/common/libtest_audio_ability.z.so -> /data/test/" src="out"/>
-            <option name="push" value="common/common/libtest_ondemand_ability.z.so -> /data/test/" src="out"/>
+            <option name="push" value="distributedschedule/safwk/libtest_audio_ability.z.so -> /data/test/" src="out"/>
+            <option name="push" value="distributedschedule/safwk/libtest_ondemand_ability.z.so -> /data/test/" src="out"/>
         </preparer>
     </target>
 </configuration>
