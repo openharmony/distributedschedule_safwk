@@ -123,7 +123,7 @@ void SystemAbility::Start()
 
 void SystemAbility::Stop()
 {
-    HILOGD(TAG, "stoping system ability...");
+    HILOGD(TAG, "stopping system ability...");
 
     if (!isRunning_) {
         return;
@@ -212,7 +212,7 @@ void SystemAbility::SetDependTimeout(int32_t dependTimeout)
     if (dependTimeout >= MIN_DEPENDENCY_TIMEOUT && dependTimeout <= MAX_DEPENDENCY_TIMEOUT) {
         dependTimeout_ = dependTimeout;
     }
-    HILOGD(TAG, "new dependTimeout:%{public}d, orignal dependTimeout:%{public}d", dependTimeout, dependTimeout_);
+    HILOGD(TAG, "new dependTimeout:%{public}d, original dependTimeout:%{public}d", dependTimeout, dependTimeout_);
 }
 
 int32_t SystemAbility::GetDependTimeout() const
