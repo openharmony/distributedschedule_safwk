@@ -26,9 +26,6 @@ using namespace OHOS::HiviewDFX;
 namespace OHOS {
 namespace {
 const std::string TAG = "LocalAbilityManagerStub";
-
-constexpr int32_t UID_ROOT = 0;
-constexpr int32_t UID_SYSTEM = 1000;
 }
 
 LocalAbilityManagerStub::LocalAbilityManagerStub()
@@ -41,10 +38,6 @@ int32_t LocalAbilityManagerStub::OnRemoteRequest(uint32_t code,
     MessageParcel& data, MessageParcel& reply, MessageOption& option)
 {
     HILOGI(TAG, "code:%{public}u, flags:%{public}d", code, option.GetFlags());
-    if (!CanRequest()) {
-        HILOGW(TAG, "permission denied!");
-        return ERR_PERMISSION_DENIED;
-    }
     if (!EnforceInterceToken(data)) {
         HILOGW(TAG, "check interface token failed!");
         return ERR_PERMISSION_DENIED;
@@ -76,12 +69,6 @@ int32_t LocalAbilityManagerStub::StartAbilityInner(MessageParcel& data, MessageP
 bool LocalAbilityManagerStub::CheckInputSysAbilityId(int32_t systemAbilityId)
 {
     return (systemAbilityId >= FIRST_SYS_ABILITY_ID) && (systemAbilityId <= LAST_SYS_ABILITY_ID);
-}
-
-bool LocalAbilityManagerStub::CanRequest()
-{
-    auto callingUid = IPCSkeleton::GetCallingUid();
-    return (callingUid == UID_ROOT) || (callingUid == UID_SYSTEM);
 }
 
 bool LocalAbilityManagerStub::EnforceInterceToken(MessageParcel& data)
