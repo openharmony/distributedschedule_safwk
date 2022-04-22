@@ -30,6 +30,7 @@
         },
         "build": {
             "sub_component": [
+                "//foundation/distributedschedule/safwk/etc/profile:foundation_cfg",
                 "//foundation/distributedschedule/safwk/etc/profile:foundation_trust",
                 "//foundation/distributedschedule/safwk/services/safwk:sa_main"
             ],
