@@ -617,8 +617,7 @@ void LocalAbilityManager::StartPhaseTasks(const std::list<SystemAbility*>& syste
     int64_t begin = GetTickCount();
     HILOGI(TAG, "start waiting for all tasks!");
     std::unique_lock<std::mutex> lck(startPhaseLock_);
-    auto now = std::chrono::system_clock::now();
-    if (!startPhaseCV_.wait_until(lck, now + std::chrono::seconds(MAX_SA_STARTUP_TIME),
+    if (!startPhaseCV_.wait_for(lck, std::chrono::seconds(MAX_SA_STARTUP_TIME),
         [this] () { return startTaskNum_ == 0; })) {
         HILOGW(TAG, "start timeout!");
     }
