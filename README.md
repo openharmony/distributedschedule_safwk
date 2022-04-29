@@ -201,7 +201,7 @@ ohos_sa_profile("xxx_sa_profile") {
 >**NOTE**<br/>
 >
 >- Set **process** to the name of the process where the system ability will run. This parameter is mandatory.
->- The *serviceid***.xml** file can contain only one **systemability** node. Multiple **systemability** nodes may cause a build failure.
+>- The *serviceid*.xml file can contain only one **systemability** node. Multiple **systemability** nodes may cause a build failure.
 >- Set **name** to the service ID registered in the code for the system ability. This parameter is mandatory.
 >- Set **libpath** to the path for loading the system ability. This parameter is mandatory.
 >- Set **run-on-create** to **true** if you want to register this system ability with the **samgr** module immediately after the process is started. Set it to **false** if you want the system ability to start only when it is accessed. This parameter is mandatory.
