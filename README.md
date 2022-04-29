@@ -170,7 +170,7 @@ Configure the profile of the system ability so that system ability can be loaded
 
 Create a folder named **sa_profile** in the root directory of the subsystem. Then, create two files in this folder, including an XML file prefixed with the service ID of the system ability and a **BUILD.gn** file.
 
-Sample *serviceid***.xml** file:
+Sample *serviceid*.xml file:
 
 ```
 
