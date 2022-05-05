@@ -1,7 +1,7 @@
-# safwk<a name="ZH-CN_TOPIC_0000001115588558"></a>
+# safwk<a name="en-us_TOPIC_0000001115588558"></a>
 ## Introduction<a name="section11660541593"></a>
 
-The **safwk** module of the System Ability Management subsystem defines how to implement a **SystemAbility** in OpenHarmony and provides APIs to start and register system abilities.
+The **safwk** module of the System Ability Management subsystem defines how to implement a system ability in OpenHarmony and provides APIs to start and register system abilities.
 
 ## Directory Structure<a name="section161941989596"></a>
 
@@ -54,7 +54,7 @@ The sample code is as follows:
 
 **1. Define the *IXXX* class for IPC.**
 
-The *IXXX* class is used to define the functions for the system ability to provide specific capabilities. To define this class, inherit from the **IRemoteBroker** provided by OpenHarmony for Inter-Process Communication (IPC) and implement the **DECLARE_INTERFACE_DESCRIPTOR(*XXX*)** that uniquely identifies this class. The identifier is used for IPC verification.
+The *IXXX* class is used to define the functions for the system ability to provide specific capabilities. To define this class, inherit from the **IRemoteBroker** class provided by OpenHarmony for Inter-Process Communication (IPC) and implement the **DECLARE\_INTERFACE\_DESCRIPTOR\(*XXX*)** that uniquely identifies this class. The identifier is used for IPC verification.
 
 ```
 namespace OHOS {
@@ -166,7 +166,7 @@ void ListenAbility::OnStop()
 
 **5. Configure the system ability.**
 
-Configure the profile of the system ability so that system ability can be loaded and registered. The configuration procedure is as follows:
+Configure the profile of the system ability so that the system ability can be loaded and registered. The configuration procedure is as follows:
 
 Create a folder named **sa_profile** in the root directory of the subsystem. Then, create two files in this folder, including an XML file prefixed with the service ID of the system ability and a **BUILD.gn** file.
 
@@ -199,22 +199,21 @@ ohos_sa_profile("xxx_sa_profile") {
 ```
 
 >**NOTE**<br/>
->
 >- Set **process** to the name of the process where the system ability will run. This parameter is mandatory.
->- The *serviceid*.xml file can contain only one **systemability** node. Multiple **systemability** nodes may cause a build failure.
+>- The *serviceid*.xml file can contain only one **systemability** node. Multiple **systemability** nodes will cause a build failure.
 >- Set **name** to the service ID registered in the code for the system ability. This parameter is mandatory.
 >- Set **libpath** to the path for loading the system ability. This parameter is mandatory.
 >- Set **run-on-create** to **true** if you want to register this system ability with the **samgr** module immediately after the process is started. Set it to **false** if you want the system ability to start only when it is accessed. This parameter is mandatory.
 >- Set **distributed** to **true** if this system ability allows cross-device access. Set it to **false** if it allows IPC only on the local device.
 >- **bootphase** specifies the startup priority of the system ability. The value can be **BootStartPhase** (highest), **CoreStartPhase**, or **OtherStartPhase** (lowest). In the same process, system abilities of a lower priority can be started and registered only after those of a higher priority have all been started and registered. This parameter is optional. The default value is **OtherStartPhase**.
 >- **dump-level** specifies the level supported by the system dumper. The default value is **1**.
->- In the **BUILD.gn** file, **subsystem_name** specifies the subsystem name. Add the list of system abilities to be configured for the subsystem in **sources**. Multiple system abilities can be configured.
+>- In the **BUILD.gn** file, set **subsystem_name** to the subsystem name, and add the list of system abilities to be configured for the subsystem in **sources**. Multiple system abilities can be configured.
 
 After the preceding steps are complete, an XML file named by the process will be generated in the **out**, for example, **out\...\system\profile\listen_test.xml**.
 
 **6. Configure the .cfg file.**
 
-The .cfg file is a native process startup policy file provided by Linux. During the system startup process, the init process parses the .cfg file to start the native process.
+The .cfg file contains the native process startup policy provided by Linux. During the system startup process, the init process parses the .cfg file to start the native process.
 
 ```
 {
@@ -240,7 +239,7 @@ The .cfg file is a native process startup policy file provided by Linux. During 
 
 ## Repositories Involved<a name="section1371113476307"></a>
 
-**System Service Management Subsystem**
+**System Ability Management Subsystem**
 
 [**distributedschedule\_safwk**](https://gitee.com/openharmony/distributedschedule_safwk)
 
