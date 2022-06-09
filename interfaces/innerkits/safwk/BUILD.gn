@@ -45,6 +45,8 @@ ohos_shared_library("system_ability_fwk") {
     public_deps = [ "//third_party/libxml2:libxml2" ]
   }
 
+  install_images = [ system_base_dir ]
+  relative_install_dir = "platformsdk"
   part_name = "safwk"
   subsystem_name = "distributedschedule"
 }
