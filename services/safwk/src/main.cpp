@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
             HILOGW(TAG, "failed to set process name:%s", strerror(errno));
             return;
         }
-        HILOGI(TAG, "Set process name to %s", argv[0]);
+        HILOGI(TAG, "Set process name to %{public}s", argv[0]);
     };
     // Load ondemand system abilities related shared libraries from specific xml-format profile
     // when this process starts.

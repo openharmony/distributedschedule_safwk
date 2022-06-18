@@ -147,7 +147,7 @@ bool LocalAbilityManager::CheckSystemAbilityManagerReady()
 
 bool LocalAbilityManager::InitSystemAbilityProfiles(const std::string& profilePath, int32_t saId)
 {
-    HILOGI(TAG, "[PerformanceTest] SAFWK parse system ability profiles!");
+    HILOGD(TAG, "[PerformanceTest] SAFWK parse system ability profiles!");
     int64_t begin = GetTickCount();
     bool ret = profileParser_->ParseSaProfiles(profilePath);
     if (!ret) {
@@ -167,13 +167,13 @@ bool LocalAbilityManager::InitSystemAbilityProfiles(const std::string& profilePa
     }
     begin = GetTickCount();
     if (saId != DEFAULT_SAID) {
-        HILOGI(TAG, "[PerformanceTest] SAFWK LoadSaLib systemAbilityId:%{public}d", saId);
+        HILOGD(TAG, "[PerformanceTest] SAFWK LoadSaLib systemAbilityId:%{public}d", saId);
         bool result = profileParser_->LoadSaLib(saId);
         HILOGI(TAG, "[PerformanceTest] SAFWK LoadSaLib systemAbilityId:%{public}d finished, spend:%{public}"
             PRId64 " ms", saId, (GetTickCount() - begin));
         return result;
     } else {
-        HILOGI(TAG, "[PerformanceTest] SAFWK load all libraries");
+        HILOGD(TAG, "[PerformanceTest] SAFWK load all libraries");
         profileParser_->OpenSo();
         HILOGI(TAG, "[PerformanceTest] SAFWK load all libraries finished, spend:%{public}" PRId64 " ms",
             (GetTickCount() - begin));
@@ -262,7 +262,7 @@ bool LocalAbilityManager::AddSystemAbilityListener(int32_t systemAbilityId, int3
     }
 
     {
-        HILOGI(TAG, "SA:%{public}d, listenerSA:%{public}d", systemAbilityId, listenerSaId);
+        HILOGD(TAG, "SA:%{public}d, listenerSA:%{public}d", systemAbilityId, listenerSaId);
         std::lock_guard<std::mutex> autoLock(listenerLock_);
         auto& listenerSaIdList = listenerMap_[systemAbilityId];
         auto iter = std::find_if(listenerSaIdList.begin(), listenerSaIdList.end(), [listenerSaId](int32_t SaId) {
@@ -296,7 +296,7 @@ bool LocalAbilityManager::RemoveSystemAbilityListener(int32_t systemAbilityId, i
     }
 
     {
-        HILOGI(TAG, "SA:%{public}d, listenerSA:%{public}d", systemAbilityId, listenerSaId);
+        HILOGD(TAG, "SA:%{public}d, listenerSA:%{public}d", systemAbilityId, listenerSaId);
         std::lock_guard<std::mutex> autoLock(listenerLock_);
         if (listenerMap_.count(systemAbilityId) == 0) {
             return true;
@@ -359,7 +359,7 @@ void LocalAbilityManager::NotifyAbilityListener(int32_t systemAbilityId, int32_t
 void LocalAbilityManager::FindAndNotifyAbilityListeners(int32_t systemAbilityId,
     const std::string& deviceId, int32_t code)
 {
-    HILOGI(TAG, "SA:%{public}d, code:%{public}d", systemAbilityId, code);
+    HILOGD(TAG, "SA:%{public}d, code:%{public}d", systemAbilityId, code);
     int64_t begin = GetTickCount();
     std::list<int32_t> listenerSaIdList;
     {
@@ -394,6 +394,7 @@ SystemAbility* LocalAbilityManager::GetAbility(int32_t systemAbilityId)
     std::shared_lock<std::shared_mutex> readLock(abilityMapLock_);
     auto it = abilityMap_.find(systemAbilityId);
     if (it == abilityMap_.end()) {
+        HILOGW(TAG, "SA:%{public}d not register", systemAbilityId);
         return nullptr;
     }
 
@@ -412,7 +413,7 @@ bool LocalAbilityManager::GetRunningStatus(int32_t systemAbilityId)
 
 void LocalAbilityManager::StartOndemandSystemAbility(int32_t systemAbilityId)
 {
-    HILOGI(TAG, "[PerformanceTest] SAFWK ondemand LoadSaLib systemAbilityId:%{public}d library", systemAbilityId);
+    HILOGD(TAG, "[PerformanceTest] SAFWK ondemand LoadSaLib systemAbilityId:%{public}d library", systemAbilityId);
     int64_t begin = GetTickCount();
     bool isExist = profileParser_->LoadSaLib(systemAbilityId);
     HILOGI(TAG, "[PerformanceTest] SAFWK ondemand LoadSaLib systemAbilityId:%{public}d, spend:%{public}" PRId64 " ms",
@@ -615,7 +616,7 @@ void LocalAbilityManager::StartPhaseTasks(const std::list<SystemAbility*>& syste
     }
 
     int64_t begin = GetTickCount();
-    HILOGI(TAG, "start waiting for all tasks!");
+    HILOGD(TAG, "start waiting for all tasks!");
     std::unique_lock<std::mutex> lck(startPhaseLock_);
     if (!startPhaseCV_.wait_for(lck, std::chrono::seconds(MAX_SA_STARTUP_TIME),
         [this] () { return startTaskNum_ == 0; })) {
@@ -645,9 +646,9 @@ bool LocalAbilityManager::Run(int32_t saId)
         HILOGE(TAG, "failed to add local abilitymanager");
         return false;
     }
-    HILOGI(TAG, "success to add process name:%{public}s", Str16ToStr8(procName_).c_str());
+    HILOGD(TAG, "success to add process name:%{public}s", Str16ToStr8(procName_).c_str());
     uint32_t concurrentThreads = std::thread::hardware_concurrency();
-    HILOGD(TAG, "concurrentThreads is %{public}d", concurrentThreads);
+    HILOGI(TAG, "concurrentThreads is %{public}d", concurrentThreads);
     pool_.Start(concurrentThreads);
     pool_.SetMaxTaskNum(MAX_TASK_NUMBER);
 
