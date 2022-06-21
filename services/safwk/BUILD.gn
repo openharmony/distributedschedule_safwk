@@ -35,7 +35,7 @@ ohos_executable("sa_main") {
   if (is_standard_system) {
     external_deps = [
       "hiviewdfx_hilog_native:libhilog",
-      "ipc:ipc_core",
+      "ipc:ipc_single",
       "samgr_standard:lsamgr",
       "samgr_standard:samgr_common",
       "samgr_standard:samgr_proxy",
