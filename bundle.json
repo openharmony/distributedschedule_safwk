@@ -21,6 +21,7 @@
         "ram": "7130KB",
         "deps": {
             "components": [
+                "hitrace_native",
                 "hiviewdfx_hilog_native",
                 "ipc",
                 "samgr_standard",
