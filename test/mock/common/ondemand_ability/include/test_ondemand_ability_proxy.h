@@ -16,9 +16,11 @@
 #ifndef TEST_MOCK_COMMON_ONDEMAND_ABILITY_INCLUDE_ONDEMAND_ABILITY_PROXY_H_
 #define TEST_MOCK_COMMON_ONDEMAND_ABILITY_INCLUDE_ONDEMAND_ABILITY_PROXY_H_
 
-#include <string>
-#include "i_test_ondemand_ability.h"
 #include "hilog/log.h"
+#include "i_test_ondemand_ability.h"
+#include "iremote_broker.h"
+#include "iremote_proxy.h"
+#include "refbase.h"
 
 namespace OHOS {
 class TestOnDemandAbilityProxy : public IRemoteProxy<ITestOnDemandAbility> {

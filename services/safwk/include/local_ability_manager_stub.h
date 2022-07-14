@@ -18,6 +18,9 @@
 #define LOCAL_ABILITY_MANAGER_STUB_H_
 
 #include <map>
+
+#include "ipc_object_stub.h"
+#include "refbase.h"
 #include "if_local_ability_manager.h"
 
 namespace OHOS {

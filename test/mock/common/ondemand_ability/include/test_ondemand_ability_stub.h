@@ -16,10 +16,10 @@
 #ifndef TEST_MOCK_COMMON_ONDEMAND_ABILITY_INCLUDE_ONDEMAND_ABILITY_STUB_H_
 #define TEST_MOCK_COMMON_ONDEMAND_ABILITY_INCLUDE_ONDEMAND_ABILITY_STUB_H_
 
-#include "i_test_ondemand_ability.h"
-#include "parcel.h"
-#include "iremote_stub.h"
 #include "hilog/log.h"
+#include "i_test_ondemand_ability.h"
+#include "iremote_stub.h"
+#include "refbase.h"
 
 namespace OHOS {
 class TestOnDemandAbilityStub : public IRemoteStub<ITestOnDemandAbility> {

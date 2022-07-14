@@ -14,8 +14,8 @@
  */
 #include "listen_ability.h"
 
-#include <string>
 #include "hilog/log.h"
+#include "iremote_object.h"
 #include "system_ability_definition.h"
 
 using namespace OHOS::HiviewDFX;

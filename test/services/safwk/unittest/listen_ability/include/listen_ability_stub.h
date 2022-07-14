@@ -16,9 +16,9 @@
 #ifndef SAFWK_TEST_SERVICES_SAFWK_UNITTEST_LISTEN_ABILITY_INCLUDE_LISTEN_ABILITY_STUB_H_
 #define SAFWK_TEST_SERVICES_SAFWK_UNITTEST_LISTEN_ABILITY_INCLUDE_LISTEN_ABILITY_STUB_H_
 
-#include "message_parcel.h"
 #include "ilisten_ability.h"
 #include "iremote_stub.h"
+#include "refbase.h"
 
 namespace OHOS {
 class ListenAbilityStub : public IRemoteStub<IListenAbility> {

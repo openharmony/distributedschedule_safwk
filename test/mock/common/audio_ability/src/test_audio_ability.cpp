@@ -14,9 +14,9 @@
  */
 
 #include "test_audio_ability.h"
-#include <string>
-#include <sys/types.h>
-#include <unistd.h>
+
+#include "hilog/log.h"
+#include "iremote_object.h"
 
 using namespace OHOS;
 using namespace OHOS::HiviewDFX;

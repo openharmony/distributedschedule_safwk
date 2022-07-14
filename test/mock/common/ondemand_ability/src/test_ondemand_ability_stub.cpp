@@ -14,8 +14,11 @@
  */
 
 #include "test_ondemand_ability_stub.h"
-#include "errors.h"
+
+#include "ipc_object_stub.h"
 #include "ipc_types.h"
+#include "message_option.h"
+#include "message_parcel.h"
 
 using namespace OHOS::HiviewDFX;
 

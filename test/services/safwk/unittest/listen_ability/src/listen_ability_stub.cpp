@@ -15,6 +15,11 @@
 
 #include "listen_ability_stub.h"
 
+#include "errors.h"
+#include "ipc_object_stub.h"
+#include "ipc_types.h"
+#include "message_parcel.h"
+
 namespace OHOS {
 int32_t ListenAbilityStub::OnRemoteRequest(uint32_t code,
     MessageParcel& data, MessageParcel &reply, MessageOption &option)

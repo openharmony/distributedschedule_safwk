@@ -14,8 +14,9 @@
  */
 
 #include <sys/prctl.h>
+#include <vector>
 
-#include "ipc_skeleton.h"
+#include "errors.h"
 #include "local_ability_manager.h"
 #include "safwk_log.h"
 #include "securec.h"

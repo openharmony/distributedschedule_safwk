@@ -16,10 +16,10 @@
 #ifndef TEST_MOCK_COMMON_AUDIO_ABILITY_INCLUDE_AUDIO_ABILITY_STUB_H_
 #define TEST_MOCK_COMMON_AUDIO_ABILITY_INCLUDE_AUDIO_ABILITY_STUB_H_
 
-#include "i_test_audio_ability.h"
-#include "parcel.h"
-#include "iremote_stub.h"
 #include "hilog/log.h"
+#include "i_test_audio_ability.h"
+#include "iremote_stub.h"
+#include "refbase.h"
 
 namespace OHOS {
 class TestAudioAbilityStub : public IRemoteStub<ITestAudioAbility> {

@@ -17,9 +17,8 @@
 #define TEST_MOCK_COMMON_ONDEMAND_ABILITY_INCLUDE_ONDEMAND_ABILITY_H_
 
 #include <string>
-#include <map>
-#include <mutex>
-#include "nocopyable.h"
+
+#include "refbase.h"
 #include "system_ability.h"
 #include "test_ondemand_ability_stub.h"
 

@@ -18,9 +18,7 @@
 #include <chrono>
 #include <cinttypes>
 #include <iostream>
-#include <string>
 #include <sys/types.h>
-#include <unistd.h>
 
 #include "datetime_ex.h"
 #include "errors.h"
@@ -29,7 +27,6 @@
 #include "iservice_registry.h"
 #include "safwk_log.h"
 #include "string_ex.h"
-#include "system_ability.h"
 
 namespace OHOS {
 using std::u16string;

@@ -17,10 +17,10 @@
 #define SYSTEM_ABILITY_H_
 
 #include <string>
-#include <map>
 #include <vector>
-#include <chrono>
+
 #include "iremote_object.h"
+#include "refbase.h"
 
 namespace OHOS {
 #define REGISTER_SYSTEM_ABILITY_BY_ID(abilityClassName, systemAbilityId, runOnCreate) \

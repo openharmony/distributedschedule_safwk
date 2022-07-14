@@ -16,11 +16,11 @@
 #include "system_ability.h"
 
 #include <cinttypes>
+
 #include "datetime_ex.h"
 #include "errors.h"
 #include "hitrace_meter.h"
 #include "if_system_ability_manager.h"
-#include "ipc_skeleton.h"
 #include "iservice_registry.h"
 #include "local_ability_manager.h"
 #include "safwk_log.h"

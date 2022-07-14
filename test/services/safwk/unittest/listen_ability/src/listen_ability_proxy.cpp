@@ -14,6 +14,9 @@
  */
 
 #include "listen_ability_proxy.h"
+
+#include "iremote_object.h"
+#include "message_option.h"
 #include "message_parcel.h"
 
 namespace OHOS {

@@ -16,8 +16,9 @@
 #ifndef AUDIO_ABILITY_H_
 #define AUDIO_ABILITY_H_
 
-#include <map>
 #include <string>
+
+#include "refbase.h"
 #include "system_ability.h"
 #include "test_audio_ability_stub.h"
 

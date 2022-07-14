@@ -17,8 +17,12 @@
 #define TEST_MOCK_COMMON_AUDIO_ABILITY_INCLUDE_AUDIO_ABILITY_PROXY_H_
 
 #include <string>
-#include "i_test_audio_ability.h"
+
 #include "hilog/log.h"
+#include "i_test_audio_ability.h"
+#include "iremote_broker.h"
+#include "iremote_proxy.h"
+#include "refbase.h"
 
 namespace OHOS {
 class TestAudioAbilityProxy : public IRemoteProxy<ITestAudioAbility> {

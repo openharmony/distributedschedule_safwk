@@ -14,9 +14,12 @@
  */
 
 #include "test_ondemand_ability_proxy.h"
+
 #include "errors.h"
 #include "ipc_types.h"
-#include "parcel.h"
+#include "iremote_object.h"
+#include "message_option.h"
+#include "message_parcel.h"
 
 using namespace OHOS::HiviewDFX;
 

@@ -14,11 +14,12 @@
  */
 
 #include "test_audio_ability_proxy.h"
-#include "errors.h"
-#include "parcel.h"
 
 #include <cinttypes>
-#include <unistd.h>
+
+#include "iremote_object.h"
+#include "message_option.h"
+#include "message_parcel.h"
 
 using namespace OHOS::HiviewDFX;
 
