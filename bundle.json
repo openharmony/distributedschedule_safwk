@@ -30,11 +30,16 @@
             "third_party": [ "libxml2" ]
         },
         "build": {
-            "sub_component": [
-                "//foundation/distributedschedule/safwk/etc/profile:foundation_cfg",
-                "//foundation/distributedschedule/safwk/etc/profile:foundation_trust",
-                "//foundation/distributedschedule/safwk/services/safwk:sa_main"
-            ],
+            "group_type": {
+                "base_group": [
+                    "//foundation/distributedschedule/safwk/etc/profile:foundation_cfg",
+                    "//foundation/distributedschedule/safwk/etc/profile:foundation_trust",
+                    "//foundation/distributedschedule/safwk/services/safwk:sa_main",
+                    "//foundation/distributedschedule/safwk/interfaces/innerkits/safwk:system_ability_fwk"
+                ],
+                "fwk_group": [],
+                "service_group": []
+            },
             "inner_kits": [
                 {
                     "header": {
