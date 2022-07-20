@@ -1,8 +1,14 @@
 {
-    "permissions" : [{
-            "name" : ""
-            "said" : "",
-            "description" : ""
+    "permissions" : [
+        {
+            "name" : "ohos.permission.GET_BUNDLE_INFO_PRIVILEGED",
+            "said" : "401",
+            "description" : "Permissions required for BMS to query bundle information."
+        },
+        {
+            "name" : "ohos.permission.INSTALL_BUNDLE",
+            "said" : "401",
+            "description" : "Permissions required for BMS to install and uninstall bundle."
         }
     ]
 }
