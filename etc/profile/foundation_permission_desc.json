@@ -9,6 +9,11 @@
             "name" : "ohos.permission.INSTALL_BUNDLE",
             "said" : "401",
             "description" : "Permission required for BMS to install and uninstall bundle."
+        },
+        {
+            "name" : "ohos.permission.PERMISSION_USED_STATS",
+            "said" : "3299",
+            "description" : "Invoke AccessToken::PrivacyKit::AddPermissionUsedRecord interface should have own this permission."
         }
     ]
 }
