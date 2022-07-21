@@ -17,7 +17,7 @@ config("test_audio_ability_config") {
   visibility = [ ":*" ]
   include_dirs = [
     "include",
-    "//foundation/distributedschedule/safwk/services/safwk/include",
+    "//foundation/systemabilitymgr/safwk/services/safwk/include",
     "//utils/system/safwk/native/include",
   ]
 }
@@ -30,7 +30,7 @@ ohos_shared_library("test_audio_ability") {
   ]
   configs = [ ":test_audio_ability_config" ]
 
-  deps = [ "//foundation/distributedschedule/safwk/interfaces/innerkits/safwk:system_ability_fwk" ]
+  deps = [ "//foundation/systemabilitymgr/safwk/interfaces/innerkits/safwk:system_ability_fwk" ]
 
   external_deps = [
     "hiviewdfx_hilog_native:libhilog",
@@ -39,5 +39,5 @@ ohos_shared_library("test_audio_ability") {
   ]
 
   part_name = "safwk"
-  subsystem_name = "distributedschedule"
+  subsystem_name = "systemabilitymgr"
 }

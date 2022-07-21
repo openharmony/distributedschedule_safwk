@@ -17,8 +17,8 @@ import("//build/ohos.gni")
 config("config_safwk") {
   visibility = [ ":*" ]
   include_dirs = [
-    "//foundation/distributedschedule/safwk/services/safwk/include",
-    "//foundation/distributedschedule/safwk/interfaces/innerkits/safwk",
+    "//foundation/systemabilitymgr/safwk/services/safwk/include",
+    "//foundation/systemabilitymgr/safwk/interfaces/innerkits/safwk",
   ]
 }
 
@@ -37,14 +37,14 @@ ohos_executable("sa_main") {
       "hitrace_native:hitrace_meter",
       "hiviewdfx_hilog_native:libhilog",
       "ipc:ipc_core",
-      "samgr_standard:lsamgr",
-      "samgr_standard:samgr_common",
-      "samgr_standard:samgr_proxy",
+      "samgr:lsamgr",
+      "samgr:samgr_common",
+      "samgr:samgr_proxy",
       "utils_base:utils",
     ]
   }
 
   part_name = "safwk"
-  subsystem_name = "distributedschedule"
+  subsystem_name = "systemabilitymgr"
 }
 ################################################################################

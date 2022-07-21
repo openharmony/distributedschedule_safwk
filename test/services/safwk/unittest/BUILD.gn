@@ -18,18 +18,18 @@ module_output_path = "safwk/safwk"
 ohos_unittest("LocalAbilityManagerTest") {
   module_out_path = module_output_path
   resource_config_file =
-      "//foundation/distributedschedule/safwk/test/resource/ohos_test.xml"
+      "//foundation/systemabilitymgr/safwk/test/resource/ohos_test.xml"
 
   include_dirs =
-      [ "//foundation/distributedschedule/safwk/services/safwk/include" ]
+      [ "//foundation/systemabilitymgr/safwk/services/safwk/include" ]
 
   sources = [ "./local_ability_manager_test.cpp" ]
 
   deps = [
     "listen_ability:listen_test",
-    "//foundation/distributedschedule/safwk/interfaces/innerkits/safwk:system_ability_fwk",
-    "//foundation/distributedschedule/safwk/test/mock/common/audio_ability:test_audio_ability",
-    "//foundation/distributedschedule/safwk/test/mock/common/ondemand_ability:test_ondemand_ability",
+    "//foundation/systemabilitymgr/safwk/interfaces/innerkits/safwk:system_ability_fwk",
+    "//foundation/systemabilitymgr/safwk/test/mock/common/audio_ability:test_audio_ability",
+    "//foundation/systemabilitymgr/safwk/test/mock/common/ondemand_ability:test_ondemand_ability",
     "//third_party/googletest:gtest_main",
   ]
 
@@ -41,9 +41,9 @@ ohos_unittest("LocalAbilityManagerTest") {
   external_deps = [
     "hiviewdfx_hilog_native:libhilog",
     "ipc:ipc_core",
-    "samgr_standard:lsamgr",
-    "samgr_standard:samgr_common",
-    "samgr_standard:samgr_proxy",
+    "samgr:lsamgr",
+    "samgr:samgr_common",
+    "samgr:samgr_proxy",
     "utils_base:utils",
   ]
 }

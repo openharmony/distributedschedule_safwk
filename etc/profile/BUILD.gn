@@ -17,12 +17,12 @@ ohos_prebuilt_etc("foundation_trust") {
   source = "foundation_trust.xml"
   module_install_dir = "profile"
   part_name = "safwk"
-  subsystem_name = "distributedschedule"
+  subsystem_name = "systemabilitymgr"
 }
 
 ohos_prebuilt_etc("foundation_cfg") {
   source = "foundation.cfg"
   relative_install_dir = "init"
   part_name = "safwk"
-  subsystem_name = "distributedschedule"
+  subsystem_name = "systemabilitymgr"
 }

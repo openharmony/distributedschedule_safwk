@@ -1,19 +1,19 @@
 {
-    "name": "@ohos/distributedschedule_safwk",
+    "name": "@ohos/systemabilitymgr_safwk",
     "description": "system ability framework",
     "homePage": "https://gitee.com/openharmony",
     "version": "3.1",
     "license": "Apache License 2.0",
-    "repository": "https://gitee.com/openharmony/distributedschedule_safwk",
+    "repository": "https://gitee.com/openharmony/systemabilitymgr_safwk",
     "publishAs": "code-segment",
     "segment": {
-        "destPath": "foundation/distributedschedule/safwk"
+        "destPath": "foundation/systemabilitymgr/safwk"
     },
     "dirs": {},
     "scripts": {},
     "component": {
         "name": "safwk",
-        "subsystem": "distributedschedule",
+        "subsystem": "systemabilitymgr",
         "adapted_system_type": [
             "standard"
         ],
@@ -24,7 +24,7 @@
                 "hitrace_native",
                 "hiviewdfx_hilog_native",
                 "ipc",
-                "samgr_standard",
+                "samgr",
                 "utils_base"
             ],
             "third_party": [ "libxml2" ]
@@ -32,10 +32,10 @@
         "build": {
             "group_type": {
                 "base_group": [
-                    "//foundation/distributedschedule/safwk/etc/profile:foundation_cfg",
-                    "//foundation/distributedschedule/safwk/etc/profile:foundation_trust",
-                    "//foundation/distributedschedule/safwk/services/safwk:sa_main",
-                    "//foundation/distributedschedule/safwk/interfaces/innerkits/safwk:system_ability_fwk"
+                    "//foundation/systemabilitymgr/safwk/etc/profile:foundation_cfg",
+                    "//foundation/systemabilitymgr/safwk/etc/profile:foundation_trust",
+                    "//foundation/systemabilitymgr/safwk/services/safwk:sa_main",
+                    "//foundation/systemabilitymgr/safwk/interfaces/innerkits/safwk:system_ability_fwk"
                 ],
                 "fwk_group": [],
                 "service_group": []
@@ -43,16 +43,16 @@
             "inner_kits": [
                 {
                     "header": {
-                        "header_base": "//foundation/distributedschedule/safwk/interfaces/innerkits/safwk",
+                        "header_base": "//foundation/systemabilitymgr/safwk/interfaces/innerkits/safwk",
                         "header_files": [
                             "system_ability.h"
                         ]
                     },
-                    "name": "//foundation/distributedschedule/safwk/interfaces/innerkits/safwk:system_ability_fwk"
+                    "name": "//foundation/systemabilitymgr/safwk/interfaces/innerkits/safwk:system_ability_fwk"
                 }
             ],
             "test": [
-                "//foundation/distributedschedule/safwk/test:unittest"
+                "//foundation/systemabilitymgr/safwk/test:unittest"
             ]
         }
     }
