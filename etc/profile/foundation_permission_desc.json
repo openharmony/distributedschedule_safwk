@@ -15,5 +15,17 @@
             "said" : "3299",
             "description" : "Invoke AccessToken::PrivacyKit::AddPermissionUsedRecord interface should have own this permission."
         }
+    ],
+    "restart" : [
+        {
+            "name" : "reset accountmgr",
+            "said" : "180",
+            "description" : "AMS requires accountmgr to restart"
+        },
+        {
+            "name" : "reset appspawn",
+            "said" : "180",
+            "description" : "AMS requires all application to restart"
+        }
     ]
 }
