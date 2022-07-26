@@ -62,7 +62,6 @@ void LocalAbilityManagerTest::TearDown()
  * @tc.name: CheckTrustSa001
  * @tc.desc:  CheckTrustSa with not all allow
  * @tc.type: FUNC
- * @tc.require: SR000GICST
  */
 HWTEST_F(LocalAbilityManagerTest, CheckTrustSa001, TestSize.Level1)
 {
@@ -89,7 +88,6 @@ HWTEST_F(LocalAbilityManagerTest, CheckTrustSa001, TestSize.Level1)
  * @tc.name: CheckTrustSa002
  * @tc.desc:  CheckTrustSa with all allow
  * @tc.type: FUNC
- * @tc.require: SR000GICST
  */
 HWTEST_F(LocalAbilityManagerTest, CheckTrustSa002, TestSize.Level1)
 {
@@ -117,7 +115,6 @@ HWTEST_F(LocalAbilityManagerTest, CheckTrustSa002, TestSize.Level1)
  * @tc.name: DoStartSAProcess001
  * @tc.desc:  DoStartSAProcess001
  * @tc.type: FUNC
- * @tc.require: SR000GH56H
  */
 HWTEST_F(LocalAbilityManagerTest, DoStartSAProcess001, TestSize.Level2)
 {
