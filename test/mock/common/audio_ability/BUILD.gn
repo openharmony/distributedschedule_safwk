@@ -33,9 +33,9 @@ ohos_shared_library("test_audio_ability") {
   deps = [ "//foundation/distributedschedule/safwk/interfaces/innerkits/safwk:system_ability_fwk" ]
 
   external_deps = [
+    "c_utils:utils",
     "hiviewdfx_hilog_native:libhilog",
     "ipc:ipc_core",
-    "utils_base:utils",
   ]
 
   part_name = "safwk"
