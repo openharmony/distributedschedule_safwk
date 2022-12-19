@@ -1,7 +1,20 @@
+**NOTICE**
+
+The distributedschedule_safwk repository is renamed systemabilitymgr_safwk since August 2022. The distributedschedule_safwk repository is archived and no longer maintained.
+
+To obtain the latest code, go to [**systemabilitymgr\_safwk**](https://gitee.com/openharmony/systemabilitymgr_safwk).
+
 # safwk<a name="en-us_TOPIC_0000001115588558"></a>
 ## Introduction<a name="section11660541593"></a>
 
 The **safwk** module of the System Ability Management subsystem defines how to implement a system ability in OpenHarmony and provides APIs to start and register system abilities.
+
+## Architecture<a name="section342962219551"></a>
+
+**Figure 1**  safwk architecture
+
+
+![](figures/en-us_image_0000001115820566.png)
 
 ## Directory Structure<a name="section161941989596"></a>
 
